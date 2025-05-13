@@ -10,7 +10,7 @@ import { motion } from "framer-motion";
 const projectsData = [
   {
     title: "Multi-Agent PydanticAI Chat System",
-    description: "Developed a full-stack fumulti-agent chat system leveraging PydanticAI for structured data extraction and response generation, and React for user interaction. This system enables complex, context-aware conversations with multiple AI agents collaborating to fulfill user requests.",
+    description: "Developed a full-stack multi-agent chat system leveraging PydanticAI for structured data extraction and response generation, and React for user interaction. This system enables complex, context-aware conversations with multiple AI agents collaborating to fulfill user requests.",
     tags: ["Python", "FastAPI", "PydanticAI", "Typescript", "React"],
     githubLink: "https://github.com/cgoncalves94/multi-agent-pydanticAI",
     liveLink: null,
