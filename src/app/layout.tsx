@@ -10,6 +10,9 @@ export const metadata: Metadata = {
   title: 'Cesar Goncalves - Software Engineer',
   description:
     'Portfolio of Cesar Goncalves, a Software Engineer specializing in backend development with Python, FastAPI, and AI/ML solutions.',
+  icons: {
+    icon: '/favicon.svg',
+  },
 }
 
 export default function RootLayout({
