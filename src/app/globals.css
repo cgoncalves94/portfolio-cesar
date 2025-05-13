@@ -1,3 +1,4 @@
+/* tailwindcss */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -35,12 +36,7 @@
     --radius: 0.5rem;
   }
 
-  .dark {
-    /* You can define specific dark theme overrides here if needed,
-       but the above :root is already dark-themed. 
-       Shadcn UI handles dark mode via class or data attribute on html tag.
-    */
-  }
+  /* The .dark ruleset was removed to avoid empty rulesets. */
 }
 
 @layer base {
@@ -82,4 +78,3 @@ html {
   background-color: hsl(var(--primary) / 0.7);
   color: hsl(var(--primary-foreground));
 }
-
