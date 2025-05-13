@@ -13,6 +13,7 @@ import Link from 'next/link'
 import { DynamicIcon } from 'lucide-react/dynamic'
 import { ExternalLink } from 'lucide-react'
 import { motion } from 'framer-motion'
+import { useIsMobile } from '@/hooks/use-mobile'
 
 const projectsData = [
   {
@@ -68,6 +69,8 @@ const projectsData = [
 ]
 
 export default function Projects() {
+  const isMobile = useIsMobile()
+
   return (
     <section
       id="projects"
@@ -109,7 +112,7 @@ export default function Projects() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="flex-grow pb-4 pt-2">
-                  <div className="mb-4 flex flex-wrap gap-2">
+                  <div className={`flex flex-wrap gap-2 ${isMobile ? 'mb-6' : 'mb-4'}`}>
                     {project.tags.map((tag) => (
                       <Badge
                         key={tag}
@@ -121,7 +124,7 @@ export default function Projects() {
                     ))}
                   </div>
                 </CardContent>
-                <CardFooter className="flex justify-end space-x-3 border-t border-slate-700/50 bg-slate-800/50 pb-6 pt-2">
+                <CardFooter className={`flex ${isMobile ? 'flex-col items-start space-y-2 space-x-0' : 'justify-end space-x-3'} border-t border-slate-700/50 bg-slate-800/50 pb-6 pt-2`}>
                   {project.githubLink && (
                     <Link
                       href={project.githubLink}

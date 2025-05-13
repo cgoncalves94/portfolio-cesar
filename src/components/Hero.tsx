@@ -4,12 +4,15 @@ import Link from 'next/link'
 import { Button } from '@/components/ui/button' // Assuming Shadcn UI button
 import { ArrowDown } from 'lucide-react'
 import { motion } from 'framer-motion'
+import { useIsMobile } from '@/hooks/use-mobile'
 
 export default function Hero() {
+  const isMobile = useIsMobile()
+
   return (
     <section
       id="hero"
-      className="relative flex min-h-screen items-center justify-center overflow-hidden bg-gray-900 py-20 text-white md:py-28"
+      className={`relative flex items-center justify-center overflow-hidden bg-gray-900 text-white ${isMobile ? 'min-h-screen py-20' : 'min-h-screen py-20 md:py-28'}`}
     >
       <div className="container relative z-10 mx-auto grid grid-cols-1 items-center gap-12 px-4 md:grid-cols-2 md:px-6">
         <motion.div
@@ -21,8 +24,8 @@ export default function Hero() {
           <Image
             src="/31444937_cropped.jpg"
             alt="Cesar Goncalves"
-            width={400}
-            height={400}
+            width={isMobile ? 250 : 400}
+            height={isMobile ? 250 : 400}
             className="rounded-full border-4 border-gray-700 object-cover shadow-2xl shadow-gray-900/60"
             priority
           />
@@ -32,7 +35,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.4 }}
-            className="mb-6 text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl"
+            className={`mb-6 font-extrabold tracking-tight ${isMobile ? 'text-3xl sm:text-4xl' : 'text-4xl sm:text-5xl md:text-6xl lg:text-7xl'}`}
           >
             <span className="block">Hi, I'm</span>
             <span className="block bg-gradient-to-r from-slate-300 via-slate-400 to-slate-500 bg-clip-text pb-2 text-transparent">
@@ -43,7 +46,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.6 }}
-            className="mb-12 max-w-xl text-lg leading-relaxed text-gray-300 sm:text-xl md:max-w-2xl"
+            className={`mb-12 max-w-xl leading-relaxed text-gray-300 ${isMobile ? 'text-base sm:text-lg' : 'text-lg sm:text-xl md:max-w-2xl'}`}
           >
             A Software Engineer specializing in intelligent back-end systems,
             fueled by a passion for creating AI-driven solutions.
@@ -57,7 +60,7 @@ export default function Hero() {
             >
               <Button
                 variant="outline"
-                size="lg"
+                size={isMobile ? 'default' : 'lg'}
                 className="group transform rounded-lg border-2 border-gray-400 bg-transparent px-8 py-3 text-lg text-gray-200 shadow-lg transition-all duration-300 ease-in-out hover:scale-105 hover:border-gray-500 hover:bg-gray-700/50 hover:text-white hover:shadow-gray-700/40"
               >
                 Discover More
