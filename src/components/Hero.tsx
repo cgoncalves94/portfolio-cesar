@@ -45,7 +45,7 @@ export default function Hero() {
           transition={{ duration: 1, delay: 0.6 }}
           className="max-w-xl md:max-w-2xl mx-auto text-lg sm:text-xl text-gray-300 mb-10 leading-relaxed"
         >
-          A Software Engineer crafting intelligent back-end systems with FastAPI, driven by a passion for AI-driven solutions.
+          A Software Engineer specializing in intelligent back-end systems, fueled by a passion for creating AI-driven solutions.
         </motion.p>
         <Link href="#about" passHref>
           <motion.div
