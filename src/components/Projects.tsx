@@ -72,7 +72,7 @@ export default function Projects() {
                 <CardContent className="flex-grow pt-2 pb-4">
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.tags.map((tag) => (
-                      <Badge key={tag} variant="secondary" className="bg-gray-700/60 border-gray-600 text-gray-300 text-xs">
+                      <Badge key={tag} variant="secondary" className="bg-gray-700/60 border-gray-600 text-gray-300 text-xs hover:text-gray-800 transition-colors">
                         {tag}
                       </Badge>
                     ))}
