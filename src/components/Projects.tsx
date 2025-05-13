@@ -25,14 +25,14 @@ const projectsData = [
   {
     title: "Multi-Agent LangGraph System",
     description: "Engineered a multi-agent system using LangGraph, enabling complex workflows and interactions between different AI agents. This project focused on creating robust and scalable agentic applications for various tasks, including data analysis and automated decision-making.",
-    tags: ["Python", "LangGraph", "Orquestration","AI"],
+    tags: ["Python", "LangGraph", "OpenAI", "RAG", "SQLite"],
     githubLink: "https://github.com/cgoncalves94/multi_agent_system",
     liveLink: null,
   },
   {
     title: "Warestack - Core-API",
     description: "Backend service providing essential functionality for the Warestack platform, integrating with GitHub, Slack, and Linear to manage development workflows, repositories, and team collaboration. It focuses on detecting issues, enforcing rules, and standardizing deployments to reduce lead times and ensure consistent, reliable releases.",
-    tags: ["Python", "FastAPI", "PostgreSQL", "Docker", "Github Actions", "Redis", "Firebase"],
+    tags: ["Python", "FastAPI", "PostgreSQL", "Docker", "Github Actions", "Redis", "Firebase", "AWS"],
     githubLink: null,
     liveLink: "https://warestack.com/",
   },
