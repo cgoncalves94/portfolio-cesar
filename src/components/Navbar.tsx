@@ -26,6 +26,8 @@ export default function Navbar() {
   return (
     <nav
       className={`fixed left-0 right-0 top-0 z-50 bg-gray-900/80 py-3 shadow-xl backdrop-blur-md transition-all duration-300 ease-in-out`}
+      aria-label="Primary"
+      role="navigation"
     >
       <div className="container mx-auto flex items-center justify-end px-4 md:px-6">
         {/* Desktop Menu */}

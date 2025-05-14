@@ -1,5 +1,4 @@
 'use client'
-// src/components/Experience.tsx
 import React from 'react'
 import {
   Briefcase,
@@ -83,14 +82,15 @@ export default function Experience() {
           transition={{ duration: 0.7, ease: 'easeOut' }}
           className="mx-auto mb-16 max-w-3xl text-center md:mb-20"
         >
-          <h2 className="bg-gradient-to-r from-slate-300 via-slate-400 to-slate-500 bg-clip-text pb-2 text-3xl font-extrabold tracking-tight text-transparent sm:text-4xl md:text-5xl">
+          <h2
+            className="bg-gradient-to-r from-slate-300 via-slate-400 to-slate-500 bg-clip-text pb-2 text-3xl font-extrabold tracking-tight text-transparent sm:text-4xl md:text-5xl"
+            id="experience-heading"
+          >
             Professional Journey
           </h2>
         </motion.div>
 
         <div className="relative mx-auto max-w-4xl">
-          {/* Removed Vertical timeline bar */}
-
           {experiences.map((exp, index) => (
             <motion.div
               key={index}

@@ -1,7 +1,7 @@
 'use client'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Button } from '@/components/ui/button' // Assuming Shadcn UI button
+import { Button } from '@/components/ui/button'
 import { ArrowDown } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { useIsMobile } from '@/hooks/use-mobile'
@@ -23,7 +23,7 @@ export default function Hero() {
         >
           <Image
             src="/31444937_cropped.jpg"
-            alt="Cesar Goncalves"
+            alt="Cesar Goncalves, Software Engineer portrait photo"
             width={isMobile ? 250 : 400}
             height={isMobile ? 250 : 400}
             className="rounded-full border-4 border-gray-700 object-cover shadow-2xl shadow-gray-900/60"
@@ -36,6 +36,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.4 }}
             className={`mb-6 font-extrabold tracking-tight ${isMobile ? 'text-3xl sm:text-4xl' : 'text-4xl sm:text-5xl md:text-6xl lg:text-7xl'}`}
+            id="hero-heading"
           >
             <span className="block">Hi, I'm</span>
             <span className="block bg-gradient-to-r from-slate-300 via-slate-400 to-slate-500 bg-clip-text pb-2 text-transparent">
@@ -63,7 +64,7 @@ export default function Hero() {
                 size={isMobile ? 'default' : 'lg'}
                 className="group transform rounded-lg border-2 border-gray-400 bg-transparent px-8 py-3 text-lg text-gray-200 shadow-lg transition-all duration-300 ease-in-out hover:scale-105 hover:border-gray-500 hover:bg-gray-700/50 hover:text-white hover:shadow-gray-700/40"
               >
-                Discover More
+                View my work
                 <ArrowDown className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-y-1" />
               </Button>
             </motion.div>

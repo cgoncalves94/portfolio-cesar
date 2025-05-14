@@ -78,7 +78,10 @@ export default function Projects() {
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="mb-16 text-center">
-          <h2 className="bg-gradient-to-r from-slate-300 via-slate-400 to-slate-500 bg-clip-text pb-2 text-4xl font-bold tracking-tight text-transparent md:text-5xl">
+          <h2
+            className="bg-gradient-to-r from-slate-300 via-slate-400 to-slate-500 bg-clip-text pb-2 text-4xl font-bold tracking-tight text-transparent md:text-5xl"
+            id="projects-heading"
+          >
             Featured Projects
           </h2>
           <p className="mx-auto mt-4 max-w-3xl text-lg text-gray-400">
@@ -112,7 +115,9 @@ export default function Projects() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="flex-grow pb-4 pt-2">
-                  <div className={`flex flex-wrap gap-2 ${isMobile ? 'mb-6' : 'mb-4'}`}>
+                  <div
+                    className={`flex flex-wrap gap-2 ${isMobile ? 'mb-6' : 'mb-4'}`}
+                  >
                     {project.tags.map((tag) => (
                       <Badge
                         key={tag}
@@ -124,7 +129,9 @@ export default function Projects() {
                     ))}
                   </div>
                 </CardContent>
-                <CardFooter className={`flex ${isMobile ? 'flex-col items-start space-y-2 space-x-0' : 'justify-end space-x-3'} border-t border-slate-700/50 bg-slate-800/50 pb-6 pt-2`}>
+                <CardFooter
+                  className={`flex ${isMobile ? 'flex-col items-start space-x-0 space-y-2' : 'justify-end space-x-3'} border-t border-slate-700/50 bg-slate-800/50 pb-6 pt-2`}
+                >
                   {project.githubLink && (
                     <Link
                       href={project.githubLink}

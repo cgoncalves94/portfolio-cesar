@@ -28,7 +28,7 @@ export default function Footer() {
             <DynamicIcon name="github" size={24} />
           </a>
           <a
-            href="mailto:goncalves.cesaraugusto94@gmail.com" // Replace with actual email if desired, or a contact form link
+            href="mailto:goncalves.cesaraugusto94@gmail.com"
             className="text-gray-400 transition-colors duration-300 hover:text-white"
             aria-label="Email Cesar Goncalves"
           >

@@ -1,5 +1,4 @@
 'use client'
-// src/components/Skills.tsx
 import React from 'react'
 import { Card, CardContent } from '@/components/ui/card'
 import { motion } from 'framer-motion'
@@ -82,11 +81,13 @@ export default function Skills() {
           transition={{ duration: 0.7, ease: 'easeOut' }}
           className="mx-auto mb-16 max-w-3xl text-center md:mb-20"
         >
-          <h2 className="bg-gradient-to-r from-slate-300 via-slate-400 to-slate-500 bg-clip-text pb-2 text-3xl font-extrabold tracking-tight text-transparent sm:text-4xl md:text-5xl">
+          <h2
+            className="bg-gradient-to-r from-slate-300 via-slate-400 to-slate-500 bg-clip-text pb-2 text-3xl font-extrabold tracking-tight text-transparent sm:text-4xl md:text-5xl"
+            id="skills-heading"
+          >
             Technical Skills
           </h2>
         </motion.div>
-        {/* Modified grid layout for 3-2 arrangement on large screens */}
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {skillCategories.slice(0, 3).map((cat, idx) => {
             // First 3 cards
