@@ -30,7 +30,8 @@ const experiences = [
     location: 'London, UK',
     period: '2024 - Present',
     details: [
-      'Led Python/cloud computing labs for 30+ students, focusing on GCP deployments, data pipelines, and demonstrating cloud-native practices (Node.js, Docker, CI/CD).',
+      'Led labs for 30+ university students focused on Cloud Computing using GCP and Big Data Analytics using Python',
+      'Taught practical skills in building APIs with Node.js, containerisation using Docker, and CI/CD automation via GitHub Actions',
     ],
     icon: <GraduationCap className="h-6 w-6 text-sky-400" />,
     gradient: 'from-sky-600 to-cyan-500',
