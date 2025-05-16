@@ -65,10 +65,7 @@ const experiences = [
     company: 'GSystem',
     location: 'Lisbon, Portugal',
     period: '2013 - 2015',
-    details: [
-      'Built applications with Visual Basic 6',
-      'Built applications with MySQL',
-    ],
+    details: ['Built applications with Visual Basic 6 and MySQL'],
     icon: <Code className="h-6 w-6 text-rose-400" />,
     gradient: 'from-rose-600 to-red-500',
   },
