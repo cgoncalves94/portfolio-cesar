@@ -54,8 +54,8 @@ const experiences = [
     location: 'London, UK',
     period: '2016 - 2018',
     details: [
-      'Supervised transactions, inventory, and customer service',
-      'Earned promotion to Bar Manager for leadership',
+      'Supervised transactions and inventory',
+      'Earned promotion to Bar Manager in recognition of leadership skills',
     ],
     icon: <Martini className="h-6 w-6 text-amber-400" />,
     gradient: 'from-amber-500 to-yellow-400',
