@@ -21,11 +21,11 @@ export default function Home() {
       <section id="about" aria-labelledby="about-heading">
         <About />
       </section>
-      <section id="projects" aria-labelledby="projects-heading">
-        <Projects />
-      </section>
       <section id="skills" aria-labelledby="skills-heading">
         <Skills />
+      </section>
+      <section id="projects" aria-labelledby="projects-heading">
+        <Projects />
       </section>
       <section id="experience" aria-labelledby="experience-heading">
         <Experience />

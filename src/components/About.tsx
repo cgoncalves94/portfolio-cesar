@@ -28,21 +28,16 @@ export default function About() {
             className={`space-y-4 text-center ${isMobile ? 'text-sm' : 'text-base md:text-lg'} leading-relaxed text-gray-300`}
           >
             <p>
-              A highly motivated Software Engineer specializing in building
-              robust and reliable Python back-end systems with a strong focus on
-              FastAPI. I graduated with a Bachelor's in Computer Science with
-              First-Class Honours from Birkbeck, University of London and am
-              passionate about leveraging Artificial Intelligence, particularly
-              LangGraph agents and Retrieval-Augmented Generation (RAG), to
-              create efficient and intelligent solutions.
-            </p>
-            <p>
-              My expertise extends to Docker, CI/CD pipelines with GitHub
-              Actions, and cloud deployment strategies on platforms like AWS and
-              GCP. Currently, I contribute as a Backend Developer & AI Engineer
-              at Warestack and serve as a Teaching Assistant at Birkbeck
-              University. I am driven by a passion for AI, developing scalable
-              applications, and finding elegant solutions to complex problems.
+              I’m a motivated Software Engineer specializing in building
+              reliable Python backend systems with a focus on FastAPI. I hold a
+              First-Class Honours degree in Computer Science from Birkbeck,
+              University of London, and am passionate about leveraging AI,
+              including LangGraph agents and Retrieval-Augmented Generation
+              (RAG), to develop intelligent solutions. Currently, I work as a
+              Backend Developer & AI Engineer at Warestack and support teaching
+              cloud computing and big data analytics at Birkbeck. My skills also
+              include Docker, CI/CD with GitHub Actions, and cloud deployments
+              on AWS and GCP.
             </p>
           </div>
         </motion.div>
