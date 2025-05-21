@@ -94,7 +94,13 @@ export default function Projects() {
       className="bg-gray-900/80 pb-10 pt-10 backdrop-blur-lg md:pb-16 md:pt-16"
     >
       <div className="container mx-auto px-4 md:px-6">
-        <div className="mb-16 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.7, ease: 'easeOut' }}
+          className="mb-16 text-center"
+        >
           <h2
             className="bg-gradient-to-r from-slate-300 via-slate-400 to-slate-500 bg-clip-text pb-2 text-4xl font-bold tracking-tight text-transparent md:text-5xl"
             id="projects-heading"
@@ -107,7 +113,7 @@ export default function Projects() {
             my commitment to building efficient, scalable, and innovative
             solutions.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid gap-8 md:grid-cols-2 lg:gap-12">
           {projectsData.map((project, index) => (

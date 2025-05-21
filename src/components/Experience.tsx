@@ -84,10 +84,10 @@ export default function Experience() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.7, ease: 'easeOut' }}
-          className="mx-auto mb-16 max-w-3xl text-center md:mb-20"
+          className="mb-16 text-center"
         >
           <h2
-            className="bg-gradient-to-r from-slate-300 via-slate-400 to-slate-500 bg-clip-text pb-2 text-3xl font-extrabold tracking-tight text-transparent sm:text-4xl md:text-5xl"
+            className="bg-gradient-to-r from-slate-300 via-slate-400 to-slate-500 bg-clip-text pb-2 text-4xl font-bold tracking-tight text-transparent md:text-5xl"
             id="experience-heading"
           >
             Professional Journey
