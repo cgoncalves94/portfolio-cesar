@@ -38,13 +38,11 @@
     --muted: var(--bg-tertiary);
     --muted-foreground: var(--text-muted);
 
-    --accent-ui: var(--accent);
     --accent-foreground: 240 6% 4%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: var(--border);
     --input: var(--border);
     --ring: var(--accent);
 
@@ -59,8 +57,6 @@
 
   body {
     @apply bg-bg-primary text-text-primary antialiased;
-    background-color: hsl(var(--bg-primary));
-    color: hsl(var(--text-primary));
   }
 }
 

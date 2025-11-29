@@ -84,8 +84,8 @@ export default function About() {
               { label: 'Focus', value: 'Backend & AI' },
               { label: 'Stack', value: 'Python & TS' },
               { label: 'Cloud', value: 'AWS & GCP' },
-            ].map((stat, idx) => (
-              <div key={idx} className="text-center">
+            ].map((stat) => (
+              <div key={stat.label} className="text-center">
                 <div className="font-display text-lg font-semibold text-text-primary">
                   {stat.value}
                 </div>

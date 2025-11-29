@@ -39,7 +39,7 @@ export default function Navbar() {
       <div className="container mx-auto flex items-center justify-between px-6 py-4 md:px-8">
         {/* Logo / Name */}
         <Link
-          href="#"
+          href="/"
           className="font-display text-lg font-semibold tracking-tight text-text-primary transition-colors hover:text-accent"
         >
           CG
