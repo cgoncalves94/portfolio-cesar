@@ -1,8 +1,8 @@
 'use client'
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
-import { Menu, X } from 'lucide-react'
-import { DynamicIcon } from 'lucide-react/dynamic'
+import { Menu, X, Linkedin, Github } from 'lucide-react'
+import { motion, AnimatePresence } from 'framer-motion'
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -18,99 +18,139 @@ export default function Navbar() {
 
   const navItems = [
     { name: 'About', href: '#about' },
-    { name: 'Projects', href: '#projects' },
     { name: 'Skills', href: '#skills' },
+    { name: 'Projects', href: '#projects' },
     { name: 'Experience', href: '#experience' },
   ]
 
   return (
-    <nav
-      className={`fixed left-0 right-0 top-0 z-50 bg-gray-900/80 py-3 shadow-xl backdrop-blur-md transition-all duration-300 ease-in-out`}
+    <motion.nav
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+      className={`fixed left-0 right-0 top-0 z-50 transition-all duration-500 ${
+        isScrolled
+          ? 'bg-bg-primary/90 backdrop-blur-xl border-b border-border-subtle/50'
+          : 'bg-transparent'
+      }`}
       aria-label="Primary"
       role="navigation"
     >
-      <div className="container mx-auto flex items-center justify-end px-4 md:px-6">
+      <div className="container mx-auto flex items-center justify-between px-6 py-4 md:px-8">
+        {/* Logo / Name */}
+        <Link
+          href="/"
+          className="font-display text-lg font-semibold tracking-tight text-text-primary transition-colors hover:text-accent"
+        >
+          CG
+        </Link>
+
         {/* Desktop Menu */}
-        <div className="hidden items-center space-x-6 md:flex">
+        <div className="hidden items-center gap-8 md:flex">
           {navItems.map((item) => (
             <Link
               key={item.name}
               href={item.href}
-              className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 transition-colors hover:text-white"
-              onClick={() => setIsOpen(false)}
+              className="link-underline text-sm font-medium text-text-secondary transition-colors duration-300 hover:text-text-primary"
             >
               {item.name}
             </Link>
           ))}
-          <a
-            href="https://www.linkedin.com/in/cesar-goncalves94/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-gray-300 transition-colors hover:text-white"
-            aria-label="LinkedIn Profile"
-          >
-            <DynamicIcon name="linkedin" size={20} />
-          </a>
-          <a
-            href="https://github.com/cgoncalves94"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-gray-300 transition-colors hover:text-white"
-            aria-label="GitHub Profile"
-          >
-            <DynamicIcon name="github" size={20} />
-          </a>
+
+          {/* Divider */}
+          <div className="h-4 w-px bg-border-subtle" />
+
+          {/* Social Icons */}
+          <div className="flex items-center gap-4">
+            <a
+              href="https://www.linkedin.com/in/cesar-goncalves94/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-text-muted transition-colors duration-300 hover:text-accent"
+              aria-label="LinkedIn Profile"
+            >
+              <Linkedin size={18} />
+            </a>
+            <a
+              href="https://github.com/cgoncalves94"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-text-muted transition-colors duration-300 hover:text-accent"
+              aria-label="GitHub Profile"
+            >
+              <Github size={18} />
+            </a>
+          </div>
         </div>
 
         {/* Mobile Menu Button */}
-        <div className="md:hidden">
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="text-gray-300 hover:text-white focus:outline-none"
-            aria-label="Toggle menu"
-          >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
+        <button
+          type="button"
+          onClick={() => setIsOpen(!isOpen)}
+          className="relative z-50 text-text-secondary transition-colors hover:text-text-primary md:hidden"
+          aria-label="Toggle menu"
+        >
+          {isOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
       </div>
 
       {/* Mobile Menu */}
-      {isOpen && (
-        <div className="absolute left-0 right-0 top-full bg-gray-900/95 pb-4 shadow-xl backdrop-blur-md md:hidden">
-          <div className="container mx-auto flex flex-col space-y-3 px-4 pt-3 md:px-6">
-            {navItems.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="block rounded-md px-3 py-2 text-center text-base font-medium text-gray-300 transition-colors hover:text-white"
-                onClick={() => setIsOpen(false)}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+            className="absolute left-0 right-0 top-full border-b border-border-subtle/50 bg-bg-primary/95 backdrop-blur-xl md:hidden"
+          >
+            <div className="container mx-auto flex flex-col gap-1 px-6 py-6">
+              {navItems.map((item, idx) => (
+                <motion.div
+                  key={item.name}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: idx * 0.05, duration: 0.3 }}
+                >
+                  <Link
+                    href={item.href}
+                    className="block py-3 text-lg font-medium text-text-secondary transition-colors hover:text-accent"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
+                </motion.div>
+              ))}
+
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.2, duration: 0.3 }}
+                className="mt-4 flex gap-6 border-t border-border-subtle pt-6"
               >
-                {item.name}
-              </Link>
-            ))}
-            <div className="flex justify-center space-x-4 pt-2">
-              <a
-                href="https://www.linkedin.com/in/cesar-goncalves94/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-300 transition-colors hover:text-white"
-                aria-label="LinkedIn Profile"
-              >
-                <DynamicIcon name="linkedin" size={22} />
-              </a>
-              <a
-                href="https://github.com/cgoncalves94"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-300 transition-colors hover:text-white"
-                aria-label="GitHub Profile"
-              >
-                <DynamicIcon name="github" size={22} />
-              </a>
+                <a
+                  href="https://www.linkedin.com/in/cesar-goncalves94/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-text-muted transition-colors duration-300 hover:text-accent"
+                  aria-label="LinkedIn Profile"
+                >
+                  <Linkedin size={22} />
+                </a>
+                <a
+                  href="https://github.com/cgoncalves94"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-text-muted transition-colors duration-300 hover:text-accent"
+                  aria-label="GitHub Profile"
+                >
+                  <Github size={22} />
+                </a>
+              </motion.div>
             </div>
-          </div>
-        </div>
-      )}
-    </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.nav>
   )
 }

@@ -1,44 +1,32 @@
 'use client'
-import React from 'react'
-import { Card, CardContent } from '@/components/ui/card'
 import { motion } from 'framer-motion'
 import { Code2, Layers, Database, Cloud, Sparkles } from 'lucide-react'
 
 const skillCategories = [
   {
-    name: 'Programming Languages',
+    name: 'Languages',
     icon: Code2,
-    gradient: 'from-sky-500 to-blue-600',
-    iconGlow: 'shadow-[0_0_24px_4px_rgba(56,189,248,0.5)]',
-    skills: ['Python', 'Java', 'JavaScript', 'TypeScript'],
+    skills: ['Python', 'TypeScript', 'JavaScript', 'Java'],
   },
   {
-    name: 'Frameworks & Libraries',
+    name: 'Frameworks',
     icon: Layers,
-    gradient: 'from-purple-500 to-pink-600',
-    iconGlow: 'shadow-[0_0_24px_4px_rgba(168,85,247,0.5)]',
-    skills: ['FastAPI', 'LangGraph', 'PydanticAI', 'React', 'Node.js'],
+    skills: ['FastAPI', 'Fastify', 'LangGraph', 'PydanticAI', 'React', 'Node.js'],
   },
   {
     name: 'Databases',
     icon: Database,
-    gradient: 'from-emerald-500 to-green-600',
-    iconGlow: 'shadow-[0_0_24px_4px_rgba(16,185,129,0.5)]',
     skills: ['PostgreSQL', 'MongoDB', 'Redis', 'MySQL'],
   },
   {
     name: 'Cloud & DevOps',
     icon: Cloud,
-    gradient: 'from-amber-500 to-yellow-600',
-    iconGlow: 'shadow-[0_0_24px_4px_rgba(245,158,11,0.5)]',
-    skills: ['Git', 'GitHub Actions', 'Docker', 'AWS', 'GCP'],
+    skills: ['Docker', 'Kubernetes', 'GitHub Actions', 'AWS', 'GCP', 'Grafana', 'Prometheus'],
   },
   {
     name: 'AI/ML',
     icon: Sparkles,
-    gradient: 'from-rose-500 to-red-600',
-    iconGlow: 'shadow-[0_0_24px_4px_rgba(244,63,94,0.5)]',
-    skills: ['RAG', 'Fine-Tuning LLMs', 'Prompt Engineering'],
+    skills: ['MCP Servers', 'RAG', 'LLMs', 'Fine-Tuning', 'Agentic Workflows', 'Embeddings'],
   },
 ]
 
@@ -46,158 +34,111 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="relative overflow-hidden pb-10 pt-10 md:pb-16 md:pt-16"
+      className="relative bg-bg-primary py-24 md:py-32"
     >
-      {/* Subtle grid pattern background */}
-      <div
-        className="pointer-events-none absolute inset-0 z-0 opacity-20"
-        aria-hidden
-      >
-        <svg width="100%" height="100%" className="h-full w-full">
-          <defs>
-            <pattern
-              id="grid"
-              width="40"
-              height="40"
-              patternUnits="userSpaceOnUse"
-            >
-              <path
-                d="M 40 0 L 0 0 0 40"
-                fill="none"
-                stroke="#fff"
-                strokeWidth="0.5"
-                opacity="0.07"
-              />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#grid)" />
-        </svg>
-      </div>
-      <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto px-6 md:px-8">
+        {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.7, ease: 'easeOut' }}
+          transition={{ duration: 0.6 }}
           className="mb-16 text-center"
         >
           <h2
-            className="bg-gradient-to-r from-slate-300 via-slate-400 to-slate-500 bg-clip-text pb-2 text-4xl font-bold tracking-tight text-transparent md:text-5xl"
+            className="font-display text-3xl font-bold tracking-tight text-text-primary md:text-4xl"
             id="skills-heading"
           >
             Technical Skills
           </h2>
+          <div className="mx-auto mt-4 h-px w-12 bg-accent" />
         </motion.div>
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {skillCategories.slice(0, 3).map((cat, idx) => {
-            // First 3 cards
-            const Icon = cat.icon
-            return (
-              <motion.div
-                key={cat.name}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{
-                  duration: 0.5,
-                  delay: idx * 0.1,
-                  ease: 'easeOut',
-                }}
-                whileHover={{
-                  scale: 1.04,
-                  boxShadow: `0 0 24px 0 rgba(255,255,255,0.08)`,
-                }}
-                className={`group relative flex min-h-[320px] flex-col items-center overflow-hidden rounded-2xl border-2 border-transparent bg-slate-800/70 p-8 shadow-xl backdrop-blur-md transition-all duration-300`}
-                style={
-                  {
-                    borderImage: `linear-gradient(to right, var(--tw-gradient-stops)) 1`,
-                    '--tw-gradient-from': cat.gradient.split(' ')[0],
-                    '--tw-gradient-to': cat.gradient.split(' ')[1],
-                  } as React.CSSProperties
-                }
-              >
-                <div
-                  className={`mb-4 flex items-center justify-center rounded-full bg-gradient-to-br ${cat.gradient} p-4 ${cat.iconGlow} transition-all duration-300 group-hover:scale-110`}
+
+        {/* Skills Grid */}
+        <div className="mx-auto max-w-5xl">
+          {/* First row - 3 cards */}
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {skillCategories.slice(0, 3).map((category, idx) => {
+              const Icon = category.icon
+              return (
+                <motion.div
+                  key={category.name}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{
+                    duration: 0.5,
+                    delay: idx * 0.1,
+                  }}
+                  className="group rounded-xl border border-border-subtle bg-bg-secondary p-6 transition-all duration-300 hover:border-border-hover"
                 >
-                  <Icon className="h-8 w-8 text-white drop-shadow-lg" />
-                </div>
-                <h3
-                  className="mb-4 text-center text-lg font-bold text-white sm:text-xl"
-                  style={{ letterSpacing: 0.5 }}
+                  {/* Category Header */}
+                  <div className="mb-5 flex items-center gap-3">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent/10 text-accent transition-colors group-hover:bg-accent/20">
+                      <Icon className="h-5 w-5" />
+                    </div>
+                    <h3 className="font-display text-base font-semibold text-text-primary">
+                      {category.name}
+                    </h3>
+                  </div>
+
+                  {/* Skills */}
+                  <div className="flex flex-wrap gap-2">
+                    {category.skills.map((skill) => (
+                      <span
+                        key={skill}
+                        className="rounded-md bg-bg-tertiary px-3 py-1.5 text-sm text-text-secondary transition-colors hover:text-accent"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </motion.div>
+              )
+            })}
+          </div>
+
+          {/* Second row - 2 cards centered */}
+          <div className="mt-6 grid gap-6 md:grid-cols-2 lg:mx-auto lg:max-w-[calc(66.666%+0.75rem)]">
+            {skillCategories.slice(3).map((category, idx) => {
+              const Icon = category.icon
+              return (
+                <motion.div
+                  key={category.name}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{
+                    duration: 0.5,
+                    delay: (idx + 3) * 0.1,
+                  }}
+                  className="group rounded-xl border border-border-subtle bg-bg-secondary p-6 transition-all duration-300 hover:border-border-hover"
                 >
-                  {cat.name}
-                </h3>
-                <Card className="w-full border-none bg-transparent shadow-none">
-                  <CardContent className="p-0">
-                    <ul className="space-y-2 break-words text-center text-base text-gray-300 sm:text-base md:text-base lg:text-base xl:text-base">
-                      {cat.skills.map((skill) => (
-                        <li key={skill} className="break-words leading-relaxed">
-                          {skill}
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            )
-          })}
-        </div>
-        {/* Wrapper for the last two cards to center them */}
-        <div className="mt-8 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:col-span-1 lg:col-start-2">
-          {' '}
-          {/* Centering classes */}
-          {skillCategories.slice(3).map((cat, idx) => {
-            // Last 2 cards
-            const Icon = cat.icon
-            return (
-              <motion.div
-                key={cat.name}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{
-                  duration: 0.5,
-                  delay: idx * 0.1,
-                  ease: 'easeOut',
-                }}
-                whileHover={{
-                  scale: 1.04,
-                  boxShadow: `0 0 24px 0 rgba(255,255,255,0.08)`,
-                }}
-                className={`group relative flex min-h-[320px] flex-col items-center overflow-hidden rounded-2xl border-2 border-transparent bg-slate-800/70 p-8 shadow-xl backdrop-blur-md transition-all duration-300`}
-                style={
-                  {
-                    borderImage: `linear-gradient(to right, var(--tw-gradient-stops)) 1`,
-                    '--tw-gradient-from': cat.gradient.split(' ')[0],
-                    '--tw-gradient-to': cat.gradient.split(' ')[1],
-                  } as React.CSSProperties
-                }
-              >
-                <div
-                  className={`mb-4 flex items-center justify-center rounded-full bg-gradient-to-br ${cat.gradient} p-4 ${cat.iconGlow} transition-all duration-300 group-hover:scale-110`}
-                >
-                  <Icon className="h-8 w-8 text-white drop-shadow-lg" />
-                </div>
-                <h3
-                  className="mb-4 text-center text-lg font-bold text-white sm:text-xl"
-                  style={{ letterSpacing: 0.5 }}
-                >
-                  {cat.name}
-                </h3>
-                <Card className="w-full border-none bg-transparent shadow-none">
-                  <CardContent className="p-0">
-                    <ul className="space-y-2 break-words text-center text-base text-gray-300 sm:text-base md:text-base lg:text-base xl:text-base">
-                      {cat.skills.map((skill) => (
-                        <li key={skill} className="break-words leading-relaxed">
-                          {skill}
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            )
-          })}
+                  {/* Category Header */}
+                  <div className="mb-5 flex items-center gap-3">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent/10 text-accent transition-colors group-hover:bg-accent/20">
+                      <Icon className="h-5 w-5" />
+                    </div>
+                    <h3 className="font-display text-base font-semibold text-text-primary">
+                      {category.name}
+                    </h3>
+                  </div>
+
+                  {/* Skills */}
+                  <div className="flex flex-wrap gap-2">
+                    {category.skills.map((skill) => (
+                      <span
+                        key={skill}
+                        className="rounded-md bg-bg-tertiary px-3 py-1.5 text-sm text-text-secondary transition-colors hover:text-accent"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </motion.div>
+              )
+            })}
+          </div>
         </div>
       </div>
     </section>

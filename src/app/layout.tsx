@@ -1,11 +1,26 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Inter, Sora, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
-import { ThemeProvider } from '@/components/theme-provider' // Assuming you have this for Shadcn theming
+import { ThemeProvider } from '@/components/theme-provider'
 import { Analytics } from '@vercel/analytics/next'
-import Head from 'next/head'
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+  display: 'swap',
+})
+
+const sora = Sora({
+  subsets: ['latin'],
+  variable: '--font-sora',
+  display: 'swap',
+})
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  variable: '--font-jetbrains',
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   title: 'Cesar Goncalves - Software Engineer',
@@ -13,6 +28,13 @@ export const metadata: Metadata = {
     'Portfolio of Cesar Goncalves, a Software Engineer specializing in backend development with Python, FastAPI, and AI/ML solutions.',
   icons: {
     icon: '/favicon.svg',
+  },
+  openGraph: {
+    title: 'Cesar Goncalves – Backend & AI Engineer',
+    description:
+      'Portfolio of Cesar Goncalves, a Software Engineer specializing in backend development with Python, FastAPI, and AI/ML solutions.',
+    images: ['/31444937_cropped.jpg'],
+    type: 'website',
   },
 }
 
@@ -23,24 +45,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <Head>
-        <meta
-          property="og:title"
-          content="Cesar Goncalves – Backend & AI Engineer"
-        />
-        <meta
-          property="og:description"
-          content="Portfolio of Cesar Goncalves, a Software Engineer specializing in backend development with Python, FastAPI, and AI/ML solutions."
-        />
-        <meta property="og:image" content="/31444937_cropped.jpg" />
-        <meta property="og:type" content="website" />
-        <meta
-          name="description"
-          content="Portfolio of Cesar Goncalves, a Software Engineer specializing in backend development with Python, FastAPI, and AI/ML solutions."
-        />
-      </Head>
       <body
-        className={`${inter.className} bg-gray-900 text-gray-100 antialiased`}
+        className={`${inter.variable} ${sora.variable} ${jetbrainsMono.variable} font-body bg-bg-primary text-text-primary antialiased`}
       >
         <ThemeProvider
           attribute="class"
