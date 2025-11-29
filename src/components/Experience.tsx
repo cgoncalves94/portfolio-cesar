@@ -1,74 +1,76 @@
 'use client'
-import React from 'react'
-import {
-  Briefcase,
-  GraduationCap,
-  TrendingUp,
-  Martini,
-  Code,
-} from 'lucide-react' // Icons for different roles
 import { motion } from 'framer-motion'
 
 const experiences = [
   {
     role: 'Software Engineer',
+    company: 'Teya',
+    location: 'London, UK',
+    period: 'Jul 2025 - Present',
+    details: [
+      'Owner of an internal MCP Server connecting AI agents to internal systems and CRM platforms.',
+      'Built tools enabling AI to resolve customer tickets faster by retrieving merchant data and analyzing settlements.',
+      'Integrated with support workflows to help AI agents handle queries before human escalation.',
+      'Collaborated with product, operations, and backend teams to increase AI-driven ticket resolution.',
+    ],
+    current: true,
+  },
+  {
+    role: 'Software Engineer',
     company: 'Warestack',
     location: 'London, UK',
-    period: '2024 - Present',
+    period: 'Jan 2024 - Jun 2025',
     details: [
-      'Built and maintained a FastAPI backend on PostgreSQL and Redis, delivering reliable performance with 99.8% uptime.',
-      'Developed LangGraph agents (web search, RAG, Slack, Project Management) to automate tasks and surface context-aware insights.',
-      'Eliminated deployment risk by replacing manual SQL scripts with Alembic versioned migrations.',
-      'Reduced CI/CD build time by 50%, by adding UV packaging and optimising GitHub Actions.',
+      'Architected and maintained core FastAPI backend with domain models for internal and customer-facing APIs.',
+      'Built text-to-SQL reporting tool enabling users to query live data dashboards using plain English.',
+      'Developed "Warestack Assistant" chatbot with RAG for intelligent, context-rich interactions from GitHub repos.',
+      'Integrated with GitHub for PR reviews, deployment checks, and repository insights.',
+      'Created dynamic monitoring system with natural language rule definitions for flagging events.',
+      'Introduced Alembic for automated database migrations, eliminating manual SQL scripts.',
+      'Migrated to UV packaging, reducing CI/CD build times by ~50%.',
     ],
-    icon: <Briefcase className="h-6 w-6 text-purple-400" />,
-    gradient: 'from-purple-600 to-pink-500',
+    current: false,
   },
   {
     role: 'Teaching Assistant',
     company: 'Birkbeck, University of London',
     location: 'London, UK',
-    period: '2024 - Present',
+    period: 'May 2024 - Jul 2025',
     details: [
-      'Led labs for 30+ university students focused on Cloud Computing using GCP and Big Data Analytics using Python',
-      'Taught practical skills in building APIs with Node.js, containerisation using Docker, and CI/CD automation via GitHub Actions',
+      'Led labs for 30+ students in Cloud Computing (GCP) and Big Data Analytics.',
+      'Taught API development with Node.js, Docker containerization, and GitHub Actions automation.',
     ],
-    icon: <GraduationCap className="h-6 w-6 text-sky-400" />,
-    gradient: 'from-sky-600 to-cyan-500',
+    current: false,
   },
   {
-    role: 'Bar Manager',
+    role: 'Head Bartender → Bar Manager',
     company: 'The Wolseley Hospitality Group',
     location: 'London, UK',
-    period: '2018 - 2024',
+    period: 'Oct 2016 - Jan 2024',
     details: [
-      'Led a 10-person hospitality team',
-      'Streamlined inventory management',
-      'Increased profits by around 5%',
+      'Progressed from head bartender to managing a 10-person team through demonstrated leadership.',
+      'Developed strong communication, problem-solving, and stakeholder management skills.',
+      'Streamlined inventory management and increased profits by ~5%.',
     ],
-    icon: <TrendingUp className="h-6 w-6 text-emerald-400" />,
-    gradient: 'from-emerald-600 to-green-500',
+    current: false,
   },
   {
-    role: 'Head Bartender',
-    company: 'The Wolseley Hospitality Group',
+    role: 'Bartender',
+    company: 'Casual Dining Group - Belgo Centraal',
     location: 'London, UK',
-    period: '2016 - 2018',
+    period: 'Feb 2015 - Oct 2016',
     details: [
-      'Supervised transactions and inventory',
-      'Earned promotion to Bar Manager in recognition of leadership skills',
+      'Delivered high-quality service in a fast-paced central London restaurant.',
     ],
-    icon: <Martini className="h-6 w-6 text-amber-400" />,
-    gradient: 'from-amber-500 to-yellow-400',
+    current: false,
   },
   {
-    role: 'Junior Software Developer',
+    role: 'Software Developer',
     company: 'GSystem',
     location: 'Lisbon, Portugal',
-    period: '2013 - 2015',
-    details: ['Built applications with Visual Basic 6 and MySQL'],
-    icon: <Code className="h-6 w-6 text-rose-400" />,
-    gradient: 'from-rose-600 to-red-500',
+    period: 'Mar 2013 - Jan 2015',
+    details: ['Built applications with Visual Basic 6 and MySQL.'],
+    current: false,
   },
 ]
 
@@ -76,82 +78,91 @@ export default function Experience() {
   return (
     <section
       id="experience"
-      className="bg-gray-900/80 py-20 text-white backdrop-blur-lg md:py-32"
+      className="relative bg-bg-primary py-24 md:py-32"
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto px-6 md:px-8">
+        {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.7, ease: 'easeOut' }}
+          transition={{ duration: 0.6 }}
           className="mb-16 text-center"
         >
           <h2
-            className="bg-gradient-to-r from-slate-300 via-slate-400 to-slate-500 bg-clip-text pb-2 text-4xl font-bold tracking-tight text-transparent md:text-5xl"
+            className="font-display text-3xl font-bold tracking-tight text-text-primary md:text-4xl"
             id="experience-heading"
           >
-            Professional Journey
+            Experience
           </h2>
+          <div className="mx-auto mt-4 h-px w-12 bg-accent" />
         </motion.div>
 
-        <div className="relative mx-auto max-w-4xl">
-          {experiences.map((exp, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`group mb-12 flex items-start ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}
-            >
-              {/* Icon and Line Connector - Desktop */}
-              <div className="relative mx-auto hidden w-1/6 flex-col items-center md:flex">
-                <div
-                  className={`z-10 flex h-12 w-12 items-center justify-center rounded-full bg-gray-800 bg-gradient-to-br shadow-lg ring-4 ring-gray-800/50 transition-all duration-300 group-hover:ring-pink-500/70 group-hover:ring-opacity-100 ${exp.gradient}`}
-                >
-                  {exp.icon}
-                </div>
-              </div>
+        {/* Timeline */}
+        <div className="mx-auto max-w-3xl">
+          <div className="relative">
+            {/* Vertical line */}
+            <div className="absolute left-0 top-0 h-full w-px bg-border-subtle md:left-8" />
 
-              {/* Content Card */}
-              <div
-                className={`w-full transform rounded-xl border border-slate-700 bg-slate-800/70 p-6 shadow-xl shadow-slate-900/50 backdrop-blur-sm transition-all duration-500 ease-in-out hover:-translate-y-1 hover:shadow-xl hover:shadow-purple-500/30 sm:p-8 md:w-5/6 ${index % 2 === 0 ? 'md:ml-4' : 'md:mr-4'}`}
+            {/* Experience Items */}
+            {experiences.map((exp, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="relative pb-12 pl-8 last:pb-0 md:pl-20"
               >
-                {/* Icon - Mobile */}
-                <div className="mb-4 flex items-center md:hidden">
+                {/* Timeline dot */}
+                <div className="absolute left-0 top-0 -translate-x-1/2 md:left-8">
                   <div
-                    className={`flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br shadow-lg ring-2 ring-gray-800/50 ${exp.gradient}`}
-                  >
-                    {exp.icon}
-                  </div>
-                  <div className="ml-4">
-                    <h3 className="text-lg font-semibold text-white">
-                      {exp.role}
-                    </h3>
-                    <p className="text-sm text-purple-300">
-                      {exp.company} - {exp.location}
-                    </p>
-                    <p className="text-xs text-gray-400">{exp.period}</p>
-                  </div>
+                    className={`h-3 w-3 rounded-full border-2 ${
+                      exp.current
+                        ? 'border-accent bg-accent'
+                        : 'border-border-subtle bg-bg-primary'
+                    }`}
+                  />
                 </div>
-                {/* Title and Details - Desktop */}
-                <div className="hidden md:block">
-                  <h3 className="mb-1 text-xl font-semibold text-white sm:text-2xl">
+
+                {/* Content */}
+                <div className="group">
+                  {/* Period */}
+                  <div className="mb-2 flex items-center gap-3">
+                    <span className="font-mono text-sm text-text-muted">
+                      {exp.period}
+                    </span>
+                    {exp.current && (
+                      <span className="rounded-full bg-accent/10 px-2 py-0.5 text-xs font-medium text-accent">
+                        Current
+                      </span>
+                    )}
+                  </div>
+
+                  {/* Role & Company */}
+                  <h3 className="mb-1 font-display text-lg font-semibold text-text-primary">
                     {exp.role}
                   </h3>
-                  <p className="text-md mb-1 text-purple-300">
-                    {exp.company} - {exp.location}
+                  <p className="mb-4 text-sm text-text-secondary">
+                    {exp.company} · {exp.location}
                   </p>
-                  <p className="mb-4 text-sm text-gray-400">{exp.period}</p>
+
+                  {/* Details */}
+                  <ul className="space-y-2">
+                    {exp.details.map((detail, i) => (
+                      <li
+                        key={i}
+                        className="flex items-start gap-3 text-sm text-text-secondary"
+                      >
+                        <span className="mt-2 h-1 w-1 flex-shrink-0 rounded-full bg-text-muted" />
+                        {detail}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <ul className="list-inside list-disc space-y-2 text-sm leading-relaxed text-gray-300 marker:text-purple-400 sm:text-base">
-                  {exp.details.map((detail, i) => (
-                    <li key={i}>{detail}</li>
-                  ))}
-                </ul>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
