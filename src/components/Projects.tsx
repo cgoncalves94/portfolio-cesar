@@ -24,10 +24,10 @@ const projectsData: Project[] = [
     featured: true,
   },
   {
-    title: 'ReceiptScanner API',
+    title: 'Receipt Scanner',
     description:
-      'FastAPI-based backend service for scanning and extracting information from receipts using Gemini OCR. Provides structured JSON output with PostgreSQL storage, containerized with Docker.',
-    tags: ['Python', 'FastAPI', 'OCR', 'Docker', 'PostgreSQL', 'Gemini'],
+      'Full-stack receipt scanning app with AI-powered analysis using Gemini Vision. Features include automatic item extraction, category management, multi-currency support, and an analytics dashboard for tracking spending.',
+    tags: ['Next.js', 'React', 'FastAPI', 'Pydantic AI', 'PostgreSQL', 'Gemini'],
     githubLink: 'https://github.com/cgoncalves94/ReceiptScanner',
     liveLink: null,
     featured: false,
